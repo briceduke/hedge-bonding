@@ -12,7 +12,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"postinstall": "typechain",
+		"postinstall": "typechain --target ethers-v5 --out-dir contracts 'abi/*.json'",
 		"c": "git add . && cz",
 		"p": "git add . && cz && git push origin main"
 	},
@@ -28,6 +28,7 @@
 		"web3modal": "^1.9.5"
 	},
 	"devDependencies": {
+		"@typechain/ethers-v5": "^9.0.0",
 		"@types/react": "^17.0.39",
 		"cz-conventional-changelog": "3.3.0",
 		"sass": "^1.49.7",
