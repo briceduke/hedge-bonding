@@ -1,13 +1,17 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-const rootReducer = combineReducers({});
+import authReducer from './features/authSlice';
+import bondReducer from './features/bondSlice';
 
 export const store = configureStore({
-	reducer: {},
+	reducer: {
+		auth: authReducer,
+		bond: bondReducer,
+	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({ serializableCheck: false }),
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
